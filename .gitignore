@@ -1,0 +1,8 @@
+.armbian-build/
+vendor/
+output/
+boot/overlay/
+*.img
+*.img.xz
+*.dtb
+*.dtbo

@@ -1,0 +1,3 @@
+IMAGE=/home/tim/work/SM3399MB/Armbian_21.08.1_sm3399mb_focal_current_5.10.60.img
+IMAGE_SHA256=0808cfd0321deaed60a54ddeca0127d6047702136d3a58cc383fa46575da5406
+DTB=boot/sm3399b.dtb

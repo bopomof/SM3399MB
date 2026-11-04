@@ -1,0 +1,17 @@
+diff --git a/lib/functions/host/docker.sh b/lib/functions/host/docker.sh
+index f23b5f0..92b21cb 100644
+--- a/lib/functions/host/docker.sh
++++ b/lib/functions/host/docker.sh
+@@ -51,10 +51,10 @@ function get_docker_info_once() {
+ 		fi
+
+ 		# Shenanigans to go around error control & capture output in the same effort.
+-		DOCKER_INFO="$({ docker info 2> /dev/null && echo "DOCKER_INFO_OK"; } || true)"
++		DOCKER_INFO="$({ [[ "${DOCKER_IN_PATH}" == "yes" ]] && docker info 2> /dev/null && echo "DOCKER_INFO_OK"; } || true)"
+ 		declare -g -r DOCKER_INFO="${DOCKER_INFO}" # readonly
+
+-		if docker --version | grep -q podman; then
++		if [[ "${DOCKER_IN_PATH}" == "yes" ]] && docker --version | grep -q podman; then
+ 			DOCKER_IS_PODMAN="yes"
+ 		# when `docker` is a shim to `podman`, it will report its version as "podman version #.#.#"
+ 		else

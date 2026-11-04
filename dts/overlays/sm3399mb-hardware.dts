@@ -1,0 +1,12 @@
+/dts-v1/;
+/plugin/;
+
+/*
+ * This deliberately small overlay is safe on the mainline ROCK Pi 4C base.
+ * Electrical differences must come from the DTB extracted from the SM3399MB
+ * vendor image; guessing GPIO numbers here can disable eMMC or USB power.
+ */
+&{/} {
+	model = "SM3399MB";
+	compatible = "sm,sm3399mb", "rockchip,rk3399";
+};
